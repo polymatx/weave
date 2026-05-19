@@ -27,7 +27,7 @@
   "bugs": "https://github.com/polymatx/weave/issues",
   "keywords": ["ai", "agent", "llm", "mcp", "observability", "tracing", "weave"],
   "dependencies": {
-    "@hono/node-server": "^1.13.7",
+    "@hono/node-server": "^2.0.3",
     "@polymatx/weave": "workspace:*",
     "hono": "^4.6.14"
   },
