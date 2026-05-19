@@ -2,8 +2,16 @@
 
 > TypeScript-native agent orchestrator. MCP-native. Observability built-in.
 
+[![CI](https://github.com/polymatx/weave/actions/workflows/ci.yml/badge.svg)](https://github.com/polymatx/weave/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/%40polymatx%2Fweave.svg?label=%40polymatx%2Fweave)](https://www.npmjs.com/package/@polymatx/weave)
+[![npm downloads](https://img.shields.io/npm/dm/%40polymatx%2Fweave.svg)](https://www.npmjs.com/package/@polymatx/weave)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue.svg)](https://www.typescriptlang.org/)
+
 <!-- demo gif: run `./scripts/record-demo.sh` to regenerate -->
 <!-- ![weave demo](docs/assets/demo.gif) -->
+<!-- screenshot: docs/assets/ui.png -->
+<!-- ![weave trace UI](docs/assets/ui.png) -->
 
 
 `weave` is a small, opinionated framework for building multi-agent workflows in TypeScript.

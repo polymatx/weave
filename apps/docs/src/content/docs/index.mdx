@@ -1,0 +1,32 @@
+---
+title: weave
+description: TypeScript-native agent orchestrator. MCP-native. Observability built-in.
+template: splash
+hero:
+  tagline: Multi-agent flows in TypeScript. MCP-native. Local trace dashboard included.
+  actions:
+    - text: Get started
+      link: ./getting-started/install/
+      icon: right-arrow
+      variant: primary
+    - text: View on GitHub
+      link: https://github.com/polymatx/weave
+      icon: external
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid stagger>
+  <Card title="Type-safe graphs" icon="seti:typescript">
+    `graph<State>().node().edge().compile()` with full type inference across nodes.
+  </Card>
+  <Card title="MCP-native" icon="puzzle">
+    `mcp.tools` plugs directly into `agent({ tools })`. Zero glue code.
+  </Card>
+  <Card title="Observability built-in" icon="bars">
+    SQLite tracer + local React dashboard. No SaaS signup.
+  </Card>
+  <Card title="Durable" icon="lock-closed">
+    SQLite checkpoints. Resume from the last finished node after a crash.
+  </Card>
+</CardGrid>
