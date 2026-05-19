@@ -12,3 +12,10 @@ data/
 *.sqlite
 *.sqlite-journal
 *.db
+
+# Editor / local config (do not publish)
+.claude/
+.cursor/
+.aider*
+.vscode/
+.idea/
