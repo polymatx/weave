@@ -1,6 +1,6 @@
 {
   "name": "@polymatx/weave-ui",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Local trace UI for @polymatx/weave",
   "type": "module",
   "main": "./dist/server.js",

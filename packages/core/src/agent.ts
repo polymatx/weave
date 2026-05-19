@@ -1,4 +1,4 @@
-import { generateText, streamText, type LanguageModel, type Tool } from 'ai';
+import { generateText, streamText, stepCountIs, type LanguageModel, type Tool } from 'ai';
 import { nanoid } from 'nanoid';
 import { estimateCostUsd } from './cost.js';
 import type {
@@ -7,6 +7,7 @@ import type {
   AgentRunResult,
   AgentStreamResult,
   NodeContext,
+  TokenUsage,
   ToolCallRecord,
 } from './types.js';
 
@@ -25,6 +26,33 @@ export interface Agent {
   ): (state: S, ctx: NodeContext) => Promise<Partial<S>>;
 }
 
+interface V6Usage {
+  inputTokens?: number;
+  outputTokens?: number;
+  totalTokens?: number;
+}
+
+interface V6ToolCall {
+  toolCallId: string;
+  toolName: string;
+  input?: unknown;
+}
+
+interface V6ToolResult {
+  toolCallId: string;
+  output?: unknown;
+}
+
+function normalizeUsage(usage: V6Usage): TokenUsage {
+  const promptTokens = usage.inputTokens ?? 0;
+  const completionTokens = usage.outputTokens ?? 0;
+  return {
+    promptTokens,
+    completionTokens,
+    totalTokens: usage.totalTokens ?? promptTokens + completionTokens,
+  };
+}
+
 export function agent(config: AgentConfig): Agent {
   const name = config.name ?? `agent-${nanoid(6)}`;
   const tools: Record<string, Tool> = config.tools ?? {};
@@ -38,40 +66,27 @@ export function agent(config: AgentConfig): Agent {
       ...(config.system !== undefined && { system: config.system }),
       prompt: input,
       ...(Object.keys(tools).length > 0 && { tools }),
-      maxSteps: config.maxSteps ?? 5,
+      stopWhen: stepCountIs(config.maxSteps ?? 5),
       ...(config.temperature !== undefined && { temperature: config.temperature }),
       ...(options.signal !== undefined && { abortSignal: options.signal }),
       onStepFinish: (step) => {
-        const stepCalls = (step.toolCalls ?? []) as Array<{
-          toolCallId: string;
-          toolName: string;
-          args: unknown;
-        }>;
-        const stepResults = (step.toolResults ?? []) as Array<{
-          toolCallId: string;
-          result: unknown;
-        }>;
+        const stepCalls = (step.toolCalls ?? []) as unknown as V6ToolCall[];
+        const stepResults = (step.toolResults ?? []) as unknown as V6ToolResult[];
         for (const call of stepCalls) {
           const tr = stepResults.find((r) => r.toolCallId === call.toolCallId);
           toolCalls.push({
             toolName: call.toolName,
-            args: call.args,
-            result: tr?.result,
+            args: call.input,
+            result: tr?.output,
             durationMs: 0,
           });
         }
       },
     });
 
-    const usage = {
-      promptTokens: result.usage.promptTokens,
-      completionTokens: result.usage.completionTokens,
-      totalTokens: result.usage.totalTokens,
-    };
-
     return {
       text: result.text,
-      usage,
+      usage: normalizeUsage(result.usage as V6Usage),
       toolCalls,
       durationMs: Date.now() - start,
     };
@@ -84,21 +99,17 @@ export function agent(config: AgentConfig): Agent {
       ...(config.system !== undefined && { system: config.system }),
       prompt: input,
       ...(Object.keys(tools).length > 0 && { tools }),
-      maxSteps: config.maxSteps ?? 5,
+      stopWhen: stepCountIs(config.maxSteps ?? 5),
       ...(config.temperature !== undefined && { temperature: config.temperature }),
       ...(options.signal !== undefined && { abortSignal: options.signal }),
     });
 
     const finalResult: Promise<AgentRunResult> = (async () => {
-      const usage = await result.usage;
+      const usage = (await result.usage) as V6Usage;
       const text = await result.text;
       return {
         text,
-        usage: {
-          promptTokens: usage.promptTokens,
-          completionTokens: usage.completionTokens,
-          totalTokens: usage.totalTokens,
-        },
+        usage: normalizeUsage(usage),
         toolCalls: [],
         durationMs: Date.now() - start,
       };

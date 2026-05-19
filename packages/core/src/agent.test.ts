@@ -1,16 +1,21 @@
 import { describe, expect, it } from 'vitest';
-import { MockLanguageModelV1 } from 'ai/test';
+import { MockLanguageModelV3 } from 'ai/test';
 import type { LanguageModel } from 'ai';
 import { agent } from './agent.js';
 
 function mockModel(text = 'mocked reply'): LanguageModel {
-  return new MockLanguageModelV1({
-    doGenerate: async () => ({
-      rawCall: { rawPrompt: null, rawSettings: {} },
+  return new MockLanguageModelV3({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    doGenerate: (async () => ({
       finishReason: 'stop',
-      usage: { promptTokens: 10, completionTokens: 5 },
-      text,
-    }),
+      usage: {
+        inputTokens: { total: 10 },
+        outputTokens: { total: 5 },
+        totalTokens: 15,
+      },
+      content: [{ type: 'text', text }],
+      warnings: [],
+    })) as any,
   }) as unknown as LanguageModel;
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "@polymatx/weave-mcp",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "MCP integration for @polymatx/weave",
   "type": "module",
   "main": "./dist/index.js",
@@ -30,10 +30,10 @@
   "keywords": ["mcp", "model-context-protocol", "ai", "agent", "llm", "typescript"],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
-    "ai": "^4.0.20",
     "zod": "^4.4.3"
   },
   "peerDependencies": {
-    "@polymatx/weave": "workspace:*"
+    "@polymatx/weave": "workspace:*",
+    "ai": "^6.0.0"
   }
 }

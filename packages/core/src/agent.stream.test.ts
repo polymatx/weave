@@ -1,26 +1,33 @@
 import { describe, expect, it } from 'vitest';
-import { MockLanguageModelV1 } from 'ai/test';
+import { MockLanguageModelV3 } from 'ai/test';
 import type { LanguageModel } from 'ai';
 import { agent } from './agent.js';
 
 function streamingMockModel(chunks: string[]): LanguageModel {
-  return new MockLanguageModelV1({
-    doStream: async () => ({
+  return new MockLanguageModelV3({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    doStream: (async () => ({
       stream: new ReadableStream({
         start(controller) {
+          controller.enqueue({ type: 'stream-start', warnings: [] });
+          controller.enqueue({ type: 'text-start', id: '1' });
           for (const c of chunks) {
-            controller.enqueue({ type: 'text-delta', textDelta: c });
+            controller.enqueue({ type: 'text-delta', id: '1', delta: c });
           }
+          controller.enqueue({ type: 'text-end', id: '1' });
           controller.enqueue({
             type: 'finish',
             finishReason: 'stop',
-            usage: { promptTokens: 10, completionTokens: chunks.length },
+            usage: {
+              inputTokens: { total: 10 },
+              outputTokens: { total: chunks.length },
+              totalTokens: 10 + chunks.length,
+            },
           });
           controller.close();
         },
       }),
-      rawCall: { rawPrompt: null, rawSettings: {} },
-    }),
+    })) as any,
   }) as unknown as LanguageModel;
 }
 

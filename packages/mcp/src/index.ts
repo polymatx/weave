@@ -48,7 +48,7 @@ export async function connectMcpServer(
   for (const t of list.tools) {
     tools[`${name}__${t.name}`] = tool({
       description: t.description ?? `MCP tool ${t.name} from ${name}`,
-      parameters: jsonSchemaToZod(t.inputSchema as JsonSchema),
+      inputSchema: jsonSchemaToZod(t.inputSchema as JsonSchema),
       execute: async (args: unknown) => {
         const result = await client.callTool({
           name: t.name,
