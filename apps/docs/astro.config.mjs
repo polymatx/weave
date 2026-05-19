@@ -8,9 +8,9 @@ export default defineConfig({
     starlight({
       title: 'weave',
       description: 'TypeScript-native agent orchestrator. MCP-native. Observability built-in.',
-      social: {
-        github: 'https://github.com/polymatx/weave',
-      },
+      social: [
+        { icon: 'github', label: 'GitHub', href: 'https://github.com/polymatx/weave' },
+      ],
       editLink: {
         baseUrl: 'https://github.com/polymatx/weave/edit/main/apps/docs/',
       },
