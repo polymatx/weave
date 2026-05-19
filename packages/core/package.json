@@ -1,6 +1,6 @@
 {
   "name": "@polymatx/weave",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "TypeScript-native agent orchestrator. MCP-native. Observability built-in.",
   "type": "module",
   "main": "./dist/index.js",
