@@ -8,10 +8,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue.svg)](https://www.typescriptlang.org/)
 
-<!-- demo gif: run `./scripts/record-demo.sh` to regenerate -->
-<!-- ![weave demo](docs/assets/demo.gif) -->
-<!-- screenshot: docs/assets/ui.png -->
-<!-- ![weave trace UI](docs/assets/ui.png) -->
+![weave demo](docs/assets/demo.gif)
+
+![weave trace UI](docs/assets/ui.png)
 
 
 `weave` is a small, opinionated framework for building multi-agent workflows in TypeScript.
