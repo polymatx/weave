@@ -1,0 +1,37 @@
+name: no-ai-fingerprint
+
+# Hard guard: fail CI if any agent-tooling directory or AI co-author
+# trailer appears in tracked files or the latest commit. Catches both
+# accidental commits from local tools and any external PR (including
+# Dependabot) that re-introduces these artefacts via stale base trees.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Block agent-tooling directories
+        run: |
+          set -e
+          if git ls-files | grep -E '^\.(claude|cursor|aider|continue|codeium|vscode|idea)(/|$)'; then
+            echo "::error::Agent-tooling artefacts found in tracked files. Add the directory to .gitignore and remove it from the index."
+            exit 1
+          fi
+          echo "No agent-tooling directories tracked. OK."
+
+      - name: Block AI co-author trailers in HEAD
+        run: |
+          if git log -1 --format='%B' | grep -iE 'Co-Authored-By:.*(Claude|GPT|Copilot|Codeium|Cursor|Aider)'; then
+            echo "::error::AI co-author trailer found in the HEAD commit message."
+            exit 1
+          fi
+          echo "No AI co-author trailer in HEAD. OK."
