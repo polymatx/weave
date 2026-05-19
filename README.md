@@ -2,6 +2,10 @@
 
 > TypeScript-native agent orchestrator. MCP-native. Observability built-in.
 
+<!-- demo gif: run `./scripts/record-demo.sh` to regenerate -->
+<!-- ![weave demo](docs/assets/demo.gif) -->
+
+
 `weave` is a small, opinionated framework for building multi-agent workflows in TypeScript.
 
 - **Type-safe graphs** — full TS inference across nodes
