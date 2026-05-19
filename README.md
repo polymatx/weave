@@ -122,6 +122,18 @@ await flow.run({ initialState, runId: 'run-123' });
 await flow.run({ initialState, runId: 'run-123', resumeFromCheckpoint: true });
 ```
 
+## Streaming
+
+```ts
+const a = agent({ model: anthropic('claude-sonnet-4-6'), system: '...' });
+
+const { textStream, finalResult } = a.stream('Tell me a story');
+for await (const chunk of textStream) process.stdout.write(chunk);
+const { usage } = await finalResult;
+```
+
+In a graph, use `streamAsNode()` — emits `token.delta` events through the tracer.
+
 ## Packages
 
 | Package                  | Description                                       |
@@ -129,6 +141,16 @@ await flow.run({ initialState, runId: 'run-123', resumeFromCheckpoint: true });
 | `@polymatx/weave`        | Core: `agent()`, `graph()`, checkpoints, tracer   |
 | `@polymatx/weave-mcp`    | MCP client integration                            |
 | `@polymatx/weave-ui`     | Local trace UI (CLI: `weave-ui`)                  |
+
+## Examples
+
+| Example          | What it shows                                              |
+| ---------------- | ---------------------------------------------------------- |
+| `research-bot`   | 2-agent linear flow + MCP web fetch + checkpoints + traces |
+| `code-reviewer`  | Single-agent pipeline reviewing `git diff` output          |
+| `chat-router`    | Classifier + conditional edges → billing / support / sales |
+
+Run any: `pnpm --filter weave-example-<name> start`
 
 ## Development
 

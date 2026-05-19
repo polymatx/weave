@@ -1,0 +1,18 @@
+{
+  "name": "weave-example-code-reviewer",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --import tsx src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^1.0.6",
+    "@polymatx/weave": "workspace:*",
+    "ai": "^4.0.20"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2"
+  }
+}

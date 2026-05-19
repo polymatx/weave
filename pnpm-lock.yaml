@@ -33,6 +33,41 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@22.19.19)
 
+  examples/chat-router:
+    dependencies:
+      '@ai-sdk/anthropic':
+        specifier: ^1.0.6
+        version: 1.2.12(zod@3.25.76)
+      '@polymatx/weave':
+        specifier: workspace:*
+        version: link:../../packages/core
+      ai:
+        specifier: ^4.0.20
+        version: 4.3.19(react@19.2.6)(zod@3.25.76)
+      zod:
+        specifier: ^3.24.1
+        version: 3.25.76
+    devDependencies:
+      tsx:
+        specifier: ^4.19.2
+        version: 4.22.1
+
+  examples/code-reviewer:
+    dependencies:
+      '@ai-sdk/anthropic':
+        specifier: ^1.0.6
+        version: 1.2.12(zod@3.25.76)
+      '@polymatx/weave':
+        specifier: workspace:*
+        version: link:../../packages/core
+      ai:
+        specifier: ^4.0.20
+        version: 4.3.19(react@19.2.6)(zod@3.25.76)
+    devDependencies:
+      tsx:
+        specifier: ^4.19.2
+        version: 4.22.1
+
   examples/research-bot:
     dependencies:
       '@ai-sdk/anthropic':

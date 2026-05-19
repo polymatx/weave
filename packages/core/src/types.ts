@@ -65,8 +65,14 @@ export interface GraphRunResult<S> {
   events: TraceEvent[];
 }
 
+export interface AgentStreamResult {
+  textStream: AsyncIterable<string>;
+  finalResult: Promise<AgentRunResult>;
+}
+
 export type TraceEvent =
   | { type: 'run.start'; runId: string; t: number; initialState: unknown }
+  | { type: 'token.delta'; runId: string; t: number; node: string; delta: string }
   | { type: 'run.end'; runId: string; t: number; finalState: unknown; durationMs: number }
   | { type: 'run.error'; runId: string; t: number; error: string }
   | { type: 'node.start'; runId: string; t: number; node: string; state: unknown }

@@ -3,6 +3,8 @@
   "references": [
     { "path": "./packages/core" },
     { "path": "./packages/mcp" },
-    { "path": "./examples/research-bot" }
+    { "path": "./examples/research-bot" },
+    { "path": "./examples/code-reviewer" },
+    { "path": "./examples/chat-router" }
   ]
 }
