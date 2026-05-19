@@ -29,9 +29,9 @@
   "homepage": "https://github.com/polymatx/weave",
   "bugs": "https://github.com/polymatx/weave/issues",
   "dependencies": {
-    "ai": "^4.0.20",
-    "@ai-sdk/anthropic": "^1.0.6",
-    "@ai-sdk/openai": "^1.0.11",
+    "ai": "^6.0.185",
+    "@ai-sdk/anthropic": "^3.0.78",
+    "@ai-sdk/openai": "^3.0.64",
     "better-sqlite3": "^11.7.0",
     "nanoid": "^5.0.9",
     "zod": "^3.24.1"
