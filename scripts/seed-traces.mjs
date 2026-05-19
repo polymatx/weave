@@ -3,7 +3,7 @@
  * Seed the trace DB with synthetic runs so we can demo the UI without API keys.
  * Usage: node scripts/seed-traces.mjs [./weave.sqlite]
  */
-import { SqliteTracer } from '@polymatx/weave';
+import { SqliteTracer } from '../packages/core/dist/index.js';
 
 const path = process.argv[2] ?? './weave-demo.sqlite';
 const tracer = new SqliteTracer(path);
