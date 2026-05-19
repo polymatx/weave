@@ -1,0 +1,56 @@
+name: Bug report
+description: Report something that isn't working
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing an issue. The more reproducible the report, the faster the fix.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, what did you see instead?
+      placeholder: |
+        1. I ran `pnpm --filter weave-example-research-bot start`
+        2. Expected: a brief printed to stdout
+        3. Got: SqliteError "no such column: total_tokens"
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: Smallest code snippet or command sequence that reproduces it.
+      render: typescript
+
+  - type: input
+    id: weave-version
+    attributes:
+      label: weave version
+      placeholder: "0.0.1"
+    validations:
+      required: true
+
+  - type: input
+    id: node-version
+    attributes:
+      label: Node version
+      placeholder: "22.x"
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      placeholder: "macOS 15 / Ubuntu 24.04 / Windows 11"
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / trace
+      description: Stack traces or relevant trace UI output.
+      render: shell

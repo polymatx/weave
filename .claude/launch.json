@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "weave-ui-demo",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["packages/ui/dist/cli.js", "--db", "/tmp/weave-demo.sqlite", "--port", "4321"],
+      "port": 4321
+    }
+  ]
+}
