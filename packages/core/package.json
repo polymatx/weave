@@ -23,8 +23,11 @@
   "author": "polymatx",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/polymatx/weave.git"
+    "url": "git+https://github.com/polymatx/weave.git",
+    "directory": "packages/core"
   },
+  "homepage": "https://github.com/polymatx/weave",
+  "bugs": "https://github.com/polymatx/weave/issues",
   "dependencies": {
     "ai": "^4.0.20",
     "@ai-sdk/anthropic": "^1.0.6",

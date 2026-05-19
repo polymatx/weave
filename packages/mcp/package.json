@@ -19,6 +19,15 @@
     "typecheck": "tsc --noEmit"
   },
   "license": "MIT",
+  "author": "polymatx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polymatx/weave.git",
+    "directory": "packages/mcp"
+  },
+  "homepage": "https://github.com/polymatx/weave",
+  "bugs": "https://github.com/polymatx/weave/issues",
+  "keywords": ["mcp", "model-context-protocol", "ai", "agent", "llm", "typescript"],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
     "ai": "^4.0.20",

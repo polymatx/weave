@@ -17,6 +17,15 @@
     "typecheck": "tsc --noEmit"
   },
   "license": "MIT",
+  "author": "polymatx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polymatx/weave.git",
+    "directory": "packages/ui"
+  },
+  "homepage": "https://github.com/polymatx/weave",
+  "bugs": "https://github.com/polymatx/weave/issues",
+  "keywords": ["ai", "agent", "llm", "mcp", "observability", "tracing", "weave"],
   "dependencies": {
     "@hono/node-server": "^1.13.7",
     "@polymatx/weave": "workspace:*",
