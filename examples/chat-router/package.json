@@ -11,7 +11,7 @@
     "@ai-sdk/anthropic": "^1.0.6",
     "@polymatx/weave": "workspace:*",
     "ai": "^4.0.20",
-    "zod": "^3.24.1"
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "tsx": "^4.22.3"
