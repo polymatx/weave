@@ -1,0 +1,30 @@
+{
+  "name": "@polymatx/weave-mcp",
+  "version": "0.0.1",
+  "description": "MCP integration for @polymatx/weave",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "ai": "^4.0.20",
+    "zod": "^3.24.1"
+  },
+  "peerDependencies": {
+    "@polymatx/weave": "workspace:*"
+  }
+}
