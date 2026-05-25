@@ -146,13 +146,13 @@ importers:
     dependencies:
       '@hono/node-server':
         specifier: ^2.0.3
-        version: 2.0.3(hono@4.12.21)
+        version: 2.0.3(hono@4.12.23)
       '@polymatx/weave':
         specifier: workspace:*
         version: link:../core
       hono:
-        specifier: ^4.12.21
-        version: 4.12.21
+        specifier: ^4.12.23
+        version: 4.12.23
     devDependencies:
       '@types/react':
         specifier: ^19.2.15
@@ -2431,8 +2431,8 @@ packages:
     resolution: {integrity: sha512-xa3eYXYXx68XTT4hZ7dRzsXBhaq85ToSrlUJNoR0gwz/1Ap/CNwX47wfvV7pc/xWhjKVVkLT7zBJy8chhNguqQ==}
     engines: {node: '>=16.9.0'}
 
-  hono@4.12.21:
-    resolution: {integrity: sha512-uV63apnb0kyPtAUwoWgaGh9HyIFcv8lgmzPZSiTBQAFOFGIzka5EZ1dZocmGnn0XdX0+XTqJ6Tqv7selMuGLRQ==}
+  hono@4.12.23:
+    resolution: {integrity: sha512-eIaZ9qDgu7XV0pxOCrg7/WhnQ6Ivm22UcxhXx/A3dcbqbbYgBEkc6e/J/s7j2tS96zoB0S9VBdLwQNCWwUo4LA==}
     engines: {node: '>=16.9.0'}
 
   html-escaper@3.0.3:
@@ -4561,9 +4561,9 @@ snapshots:
     dependencies:
       hono: 4.12.19
 
-  '@hono/node-server@2.0.3(hono@4.12.21)':
+  '@hono/node-server@2.0.3(hono@4.12.23)':
     dependencies:
-      hono: 4.12.21
+      hono: 4.12.23
 
   '@humanfs/core@0.19.2':
     dependencies:
@@ -6252,7 +6252,7 @@ snapshots:
 
   hono@4.12.19: {}
 
-  hono@4.12.21: {}
+  hono@4.12.23: {}
 
   html-escaper@3.0.3: {}
 
