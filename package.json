@@ -15,9 +15,9 @@
     "clean": "pnpm -r exec rm -rf dist .turbo node_modules && rm -rf node_modules"
   },
   "devDependencies": {
-    "@types/node": "^22.10.0",
-    "@typescript-eslint/eslint-plugin": "^8.59.4",
-    "@typescript-eslint/parser": "^8.59.4",
+    "@types/node": "^22.19.20",
+    "@typescript-eslint/eslint-plugin": "^8.60.1",
+    "@typescript-eslint/parser": "^8.60.1",
     "eslint": "^9.17.0",
     "playwright": "^1.60.0",
     "prettier": "^3.4.2",
