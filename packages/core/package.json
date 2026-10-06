@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.12",
-    "ai": "^6.0.185",
-    "@ai-sdk/anthropic": "^3.0.78"
+    "ai": "^6.0.191",
+    "@ai-sdk/anthropic": "^3.0.79"
   }
 }

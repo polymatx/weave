@@ -8,9 +8,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ai-sdk/anthropic": "^3.0.78",
+    "@ai-sdk/anthropic": "^3.0.79",
     "@polymatx/weave": "workspace:*",
-    "ai": "^6.0.185",
+    "ai": "^6.0.191",
     "zod": "^4.4.3"
   },
   "devDependencies": {
