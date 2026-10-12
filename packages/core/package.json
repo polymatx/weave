@@ -29,7 +29,7 @@
   "homepage": "https://github.com/polymatx/weave",
   "bugs": "https://github.com/polymatx/weave/issues",
   "dependencies": {
-    "better-sqlite3": "^12.10.0",
+    "better-sqlite3": "^13.0.3",
     "nanoid": "^5.0.9",
     "zod": "^4.4.3"
   },
