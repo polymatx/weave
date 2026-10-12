@@ -8,10 +8,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ai-sdk/anthropic": "^3.0.79",
+    "@ai-sdk/anthropic": "^3.0.129",
     "@polymatx/weave": "workspace:*",
     "@polymatx/weave-mcp": "workspace:*",
-    "ai": "^6.0.191"
+    "ai": "^6.0.303"
   },
   "devDependencies": {
     "tsx": "^4.23.1"
